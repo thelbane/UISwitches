@@ -34,8 +34,10 @@ class Switch: UISwitch {
     }
 
     func updateTintColor() {
-        onTintColor = UIColor(red: CGFloat(index.level)/10, green: 0.8, blue: 0.8 - CGFloat(index.level)/10, alpha: 1.0)
-        tintColor = UIColor(red: CGFloat(index.level)/10, green: 0.8, blue: 0.8 - CGFloat(index.level)/10, alpha: 1.0)
+        let hue = 1.0 - CGFloat(index.level) / 20
+        let color = UIColor(hue: hue, saturation: 0.3, brightness: 1.0, alpha: 1.0)
+        onTintColor = color
+        tintColor = color
     }
 
 }
@@ -52,6 +54,10 @@ struct SwitchIndex: Hashable {
 
     var angle: CGFloat {
         return CGFloat(offset) * SwitchIndex.paddedRadiansForLevel(level)
+    }
+
+    var maxCount: Int {
+        return SwitchIndex.maxCountForLevel(self.level)
     }
 
     static func radiansForLevel(level: Int) -> CGFloat {

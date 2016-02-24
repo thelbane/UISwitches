@@ -14,3 +14,13 @@ func delay(delay: NSTimeInterval, closure: () -> Void) {
         closure()
     }
 }
+
+extension Int {
+    var stagger: Int {
+        var result = Float(self) / 2
+        if result != Float(self/2) {
+            result = floorf(-result)
+        }
+        return Int(result)
+    }
+}

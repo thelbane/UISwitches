@@ -10,16 +10,11 @@ import UIKit
 
 class InterplayViewController: UIViewController {
 
-    var switches = Dictionary<SwitchIndex, Switch>()
+    var switches = [SwitchIndex: Switch]()
 
     @IBOutlet weak var mainSwitch: Switch!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        mainSwitch.addTarget(self, action: "valueChanged:", forControlEvents: .ValueChanged)
-    }
-
-    func valueChanged(sender: Switch) {
+    @IBAction func valueChanged(sender: Switch) {
         switch sender.on {
         case true:
             addRing2(sender)
@@ -30,14 +25,10 @@ class InterplayViewController: UIViewController {
 
     func addRing(sender: Switch) {
         for index in 0..<SwitchIndex.maxCountForLevel(sender.index.level+1) {
-            delay (NSTimeInterval(CGFloat(index) * 0.01)) {
+            RefreshQueue.add (index * 10) {
                 self.addSwitch(SwitchIndex(level: sender.index.level+1, offset: index))
             }
         }
-    }
-
-    func addSwitch(sender: Switch) {
-        addSwitch(sender.index.translateToLevel(sender.index.level+1))
     }
 
     func addRing2(sender: Switch) {
@@ -48,7 +39,7 @@ class InterplayViewController: UIViewController {
         let remove = self.switches[startingIndex] != nil
 
         for i in 0...count {
-            delay(NSTimeInterval(CGFloat(i) * 0.01)) {
+            RefreshQueue.add (i * 2) {
                 if (remove) {
                     if let sw = self.switches[startingIndex.indexByAddingOffset(i)] {
                         sw.removeFromSuperview()
@@ -82,9 +73,8 @@ class InterplayViewController: UIViewController {
 
         let remove = self.switches[startingIndex] != nil
 
-        print(count)
         for i in 0...count {
-            delay(NSTimeInterval(CGFloat(i) * 0.01)) {
+            RefreshQueue.add (i * 2) {
                 if (remove) {
                     if let sw = self.switches[startingIndex.indexByAddingOffset(i)] {
                         sw.removeFromSuperview()
@@ -112,14 +102,16 @@ class InterplayViewController: UIViewController {
 
     func addSwitch(index: SwitchIndex) -> Switch? {
         guard switches[index] == nil else { return nil }
-        let newSwitch = Switch.init(index: index, root: self.mainSwitch)
-        newSwitch.on = true
-        view.addSubview(newSwitch)
-        switches[index] = newSwitch
+        let newSwitch = Switch.init(index: index, center: mainSwitch.center)
         newSwitch.addTarget(self, action: "valueChanged:", forControlEvents: .ValueChanged)
-        delay(0.02) {
+        switches[index] = newSwitch
+        view.addSubview(newSwitch)
+
+        newSwitch.on = true
+        RefreshQueue.add(12) {
             newSwitch.setOn(false, animated: true)
         }
+
         return newSwitch
     }
 

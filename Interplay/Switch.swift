@@ -17,11 +17,11 @@ class Switch: UISwitch {
         return tempSwitch.frame.size
     }()
 
-    required init(index: SwitchIndex, root: Switch) {
+    required init(index: SwitchIndex, center: CGPoint) {
         self.index = index
         super.init(frame: CGRectZero)
 
-        center = root.center
+        self.center = center
         layer.anchorPoint = CGPointMake(-CGFloat(index.level)+0.5,0.5)
         transform = CGAffineTransformMakeRotation(index.angle)
         updateTintColor()

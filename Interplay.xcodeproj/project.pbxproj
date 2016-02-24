@@ -64,14 +64,14 @@
 			children = (
 				150364A81C7A2E7D00B29B28 /* AppDelegate.swift */,
 				150364AC1C7A2E7D00B29B28 /* Interplay.storyboard */,
+				150364BA1C7A2FA100B29B28 /* InterplayViewController.swift */,
+				150364BC1C7A33DC00B29B28 /* Switch.swift */,
+				15AB95231C7D9B570097D0B2 /* SwitchIndex.swift */,
+				150364BE1C7A71D400B29B28 /* Helpers.swift */,
+				15AB95211C7CDEED0097D0B2 /* RefreshQueue.swift */,
 				150364AF1C7A2E7D00B29B28 /* Assets.xcassets */,
 				150364B11C7A2E7D00B29B28 /* LaunchScreen.storyboard */,
 				150364B41C7A2E7D00B29B28 /* Info.plist */,
-				150364BA1C7A2FA100B29B28 /* InterplayViewController.swift */,
-				150364BC1C7A33DC00B29B28 /* Switch.swift */,
-				150364BE1C7A71D400B29B28 /* Helpers.swift */,
-				15AB95211C7CDEED0097D0B2 /* RefreshQueue.swift */,
-				15AB95231C7D9B570097D0B2 /* SwitchIndex.swift */,
 			);
 			path = Interplay;
 			sourceTree = "<group>";

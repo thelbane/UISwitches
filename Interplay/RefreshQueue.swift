@@ -42,16 +42,15 @@ public class RefreshQueue {
     }
 
     @objc private func displayLinkTick(sender: CADisplayLink) {
-        let _ = queue
-            .filter { item -> Bool in
-                return item.expiry <= currentFrame
-            }
-            .map { item -> QueueItem in
-                item.action()
-                queue.removeAtIndex(queue.indexOf({ inItem -> Bool in
-                    return inItem.id == item.id
-                })!)
-                return item
+        let executables = queue.filter { item -> Bool in
+            return item.expiry <= currentFrame
+        }
+
+        for item in executables {
+            item.action()
+            queue.removeAtIndex(queue.indexOf({ inItem -> Bool in
+                return inItem.id == item.id
+            })!)
         }
 
         if queue.count == 0 {

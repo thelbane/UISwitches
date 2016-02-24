@@ -15,6 +15,7 @@
 		150364BD1C7A33DC00B29B28 /* Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150364BC1C7A33DC00B29B28 /* Switch.swift */; };
 		150364BF1C7A71D400B29B28 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150364BE1C7A71D400B29B28 /* Helpers.swift */; };
 		15AB95221C7CDEED0097D0B2 /* RefreshQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB95211C7CDEED0097D0B2 /* RefreshQueue.swift */; };
+		15AB95241C7D9B570097D0B2 /* SwitchIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB95231C7D9B570097D0B2 /* SwitchIndex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		150364BC1C7A33DC00B29B28 /* Switch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Switch.swift; sourceTree = "<group>"; };
 		150364BE1C7A71D400B29B28 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		15AB95211C7CDEED0097D0B2 /* RefreshQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshQueue.swift; sourceTree = "<group>"; };
+		15AB95231C7D9B570097D0B2 /* SwitchIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchIndex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				150364BC1C7A33DC00B29B28 /* Switch.swift */,
 				150364BE1C7A71D400B29B28 /* Helpers.swift */,
 				15AB95211C7CDEED0097D0B2 /* RefreshQueue.swift */,
+				15AB95231C7D9B570097D0B2 /* SwitchIndex.swift */,
 			);
 			path = Interplay;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15AB95241C7D9B570097D0B2 /* SwitchIndex.swift in Sources */,
 				15AB95221C7CDEED0097D0B2 /* RefreshQueue.swift in Sources */,
 				150364BD1C7A33DC00B29B28 /* Switch.swift in Sources */,
 				150364A91C7A2E7D00B29B28 /* AppDelegate.swift in Sources */,
